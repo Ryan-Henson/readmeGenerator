@@ -38,7 +38,7 @@ const promptUser = () =>
     },
     {
       type: "input",
-      message: "Enter your GitHub link",
+      message: "Enter your GitHub",
       name: "githubBois",
     },
     {
@@ -52,13 +52,18 @@ const promptUser = () =>
       choices: ["HTML", "CSS", "Javascript"],
       name: "techyBois",
     },
+    {
+      type: "input",
+      message: "Name of screenshot or giphy",
+      name: "jifys",
+    },
   ]);
 
 const generateHTML = (answers) =>
   `
 # ${answers.titleBoi}
 
-## Overview
+## Description 
 *${answers.definiBoi}
 
 ---
@@ -71,6 +76,7 @@ const generateHTML = (answers) =>
 * [Test Instructions](#test-instructions)
 * [Questions](#questions)
 * [Additional Resources](#additional-resources)
+* [Screenshots & Gifs](#screenshots-&-gifs)
 
 ---
 
@@ -90,8 +96,16 @@ ${answers.otherBoi}
 ${answers.testBois}
 
 ## Questions
-${answers.githubBois}
-${answers.eMailBois}
+GitHub: [${answers.githubBois}](https://github.com/${answers.githubBois})
+Email: ${answers.eMailBois}
+
+---
+
+##Screenshots & Gifs
+
+<img src="${answers.jifys}">
+
+
 `;
 
 promptUser()
